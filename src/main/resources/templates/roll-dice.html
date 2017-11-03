@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/header :: main-header"></head>
+<body>
+<nav th:replace="fragments/navbar :: mainNavbar"></nav>
+
+<h1>Hello, <span th:text="${name}"> World</span></h1>
+
+<p>
+    Please guess a number</p>
+
+<ul>
+    <li><a href="/roll-dice/1">1</a></li> <!--a href tag requires GET-->
+    <li><a href="/roll-dice/2">2</a></li>
+    <li><a href="/roll-dice/3">3</a></li>
+    <li><a href="/roll-dice/4">4</a></li>
+    <li><a href="/roll-dice/5">5</a></li>
+    <li><a href="/roll-dice/6">6</a></li>
+</ul>
+
+
+<h2 th:if="${numberPizza} != null">Results:</h2>
+<h3 th:if="${numberPizza} == ${genPizza} and ${numberPizza} != null">The number you selected is: <span th:text="${numberPizza}"></span>. Correct!</h3>
+<h3 th:if="${numberPizza} != ${genPizza}">The number generated was: <span th:text="${genPizza}"></span>. Wrong!</h3>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

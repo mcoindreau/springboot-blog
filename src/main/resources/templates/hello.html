@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/> <!--always add backslash-->
+    <title>Home</title>
+</head>
+<body>
+<h1>Hello, <span th:text="${name}"> World</span></h1>
+
+<p th:if="${rainy == true}">
+    It's raining, wear an umbrella!</p>
+
+<p th:if="${rainy != true}">The sun is out!</p>
+
+<ul>
+    <li th:each="nm :${listOfNames}">
+
+    <p th:text="${nm}"></p>
+
+    </li>
+</ul>
+</body>
+</html>

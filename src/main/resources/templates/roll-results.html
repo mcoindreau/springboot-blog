@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/> <!--always add backslash-->
+    <title>Roll the Dice</title>
+</head>
+<body>
+<h1>Roll the Dice</h1>
+<p>The number you select is: <span th:text="${numberPizza}"></span>. </p>
+<p>The number generated is: <span th:text="${genPizza}"></span>.</p>
+
+<p th:if="${numberPizza} == ${genPizza}">Number is right</p>
+
+<p th:if="${numberPizza} != ${genPizza}">Number is wrong</p>
+
+</body>
+</html>
