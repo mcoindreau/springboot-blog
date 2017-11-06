@@ -16,10 +16,10 @@ import java.util.List;
 @Controller //Step 1 Annotate
 public class PostsController {
 
-    private final PostSvc postSvc;
+    private final PostSvc postSvc; //create property
 
-    @Autowired
-    public PostsController(PostSvc postSvc){
+    @Autowired //Constructor injection, passed to controller; Spring knows to use this one and ignore others
+    public PostsController(PostSvc postSvc){ //constructor same name as the class; pass property
         this.postSvc = postSvc;
     }
 
@@ -37,12 +37,12 @@ public class PostsController {
     }
 
     @GetMapping("/posts/{id}")
-    public String showPost(@PathVariable int id, Model vModel) {
+    public String singlePost(@PathVariable int id, Model vModel) {
 
-        Post post = new Post("Example 1", "Body goes here");
+//        Post post = new Post("Example 1", "Body goes here");
 
-        vModel.addAttribute("post", post);
-        return "post/show";
+        vModel.addAttribute("post", postSvc.findOne(id));
+        return "posts/show";
     }
 
     @GetMapping("/posts/create")

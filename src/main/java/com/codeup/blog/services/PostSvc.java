@@ -6,15 +6,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service //Step 1 Annotate class- Spring Boot can't create object
 public class PostSvc {
-    private List<Post> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>(); //keep an array list of posts internally
 
-    public PostSvc() {
+    public PostSvc() { //constructor
         createPosts();
     }
-    //returns ALL posts and takes place of SHOWALL in posts controller
-    public List<Post> findAll() {
+
+    public List<Post> findAll() {  //returns ALL posts and takes place of SHOWALL in posts controller
         return posts;
     }
 

@@ -4,9 +4,17 @@
 <body>
 <nav th:include="fragments/navbar :: mainNavbar"></nav>
 
-<!--list of post-->
+<!--list of post--> <p>links</p>
 <div th:each="post : ${posts}">
-    <h1 th:text="${post.title}"></h1>
+    <h1 th:text="${post.title}">
+        <!--<a th:href="${'/posts' + post.id}" th:text="${post.title}"></a>-->
+        <!--<a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}"> link</a>-->
+    </h1>
+
+    <!--&lt;!&ndash;<h1>&ndash;&gt; *****Teacher Instruction;not working-->
+        <!--<a th:href="${'/posts/' + post.id}" th:text="${post.title}"></a>-->
+        <!--<a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}"></a>-->
+    <!--</h1>-->
     <p th:text="${post.body}"></p>
 </div>
 
