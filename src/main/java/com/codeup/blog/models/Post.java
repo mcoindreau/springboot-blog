@@ -2,7 +2,7 @@ package com.codeup.blog.models;
 
 public class Post {
 
-    private Long id;
+    private long id;
     private String title;
     private String body;
 
@@ -37,7 +37,11 @@ public class Post {
         this.title = title;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public long getId(){
+        return id;
     }
 }
