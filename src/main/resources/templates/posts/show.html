@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/header :: main-header('Single Post')"></head>
+<body>
+<nav th:include="fragments/navbar :: mainNavbar"></nav>
+
+<!--show each post-->
+<div>
+    <h1 th:text="${post.title}"></h1>
+    <p th:text="${post.body}"></p>
+    <p>Show.html</p>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

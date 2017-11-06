@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/header :: main-header"></head>
+<head th:replace="fragments/header :: main-header('Roll Dice Page')"></head>
 <body>
 <nav th:replace="fragments/navbar :: mainNavbar"></nav>
 
@@ -19,9 +19,9 @@
 </ul>
 
 
-<h2 th:if="${numberPizza} != null">Results:</h2>
-<h3 th:if="${numberPizza} == ${genPizza} and ${numberPizza} != null">The number you selected is: <span th:text="${numberPizza}"></span>. Correct!</h3>
-<h3 th:if="${numberPizza} != ${genPizza}">The number generated was: <span th:text="${genPizza}"></span>. Wrong!</h3>
+<h2 th:if="${userNumber} != null">Results:</h2>
+<h3 th:if="${userNumber} == ${genNumber} and ${userNumber} != null">The number you selected is: <span th:text="${userNumber}"></span>. Correct!</h3>
+<h3 th:if="${userNumber} != ${genNumber}">The number generated was: <span th:text="${genNumber}"></span>. Wrong!</h3>
 
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>

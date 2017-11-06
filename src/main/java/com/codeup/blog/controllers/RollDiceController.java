@@ -19,8 +19,8 @@ public class RollDiceController {
     public String random(@PathVariable Integer n, Model viewModel){
         int genNumber = (int)(Math.random() * 6 + 1); //Must CAST double to INT
 
-        viewModel.addAttribute("genPizza", genNumber);
-        viewModel.addAttribute("numberPizza", n);
+        viewModel.addAttribute("genNumber", genNumber);
+        viewModel.addAttribute("userNumber", n);
 //        int genNumber = (int) Math.floor((Math.random() * 6) - 1);
         return "roll-dice";
     }
