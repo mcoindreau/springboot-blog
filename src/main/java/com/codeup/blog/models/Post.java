@@ -14,8 +14,14 @@ public class Post {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false)
+    //By default, String properties will be mapped to VARCHAR columns, if we want a column of type TEXT, we can specify it like so:
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String body;
+
+//    @OneToOne //post can only have one user_id
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Post(String title, String body) {
         this.title = title;
@@ -54,5 +60,13 @@ public class Post {
 
     public long getId(){
         return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
