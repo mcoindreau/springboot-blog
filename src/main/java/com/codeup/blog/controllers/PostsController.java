@@ -1,9 +1,7 @@
 package com.codeup.blog.controllers;
 
 import com.codeup.blog.models.Post;
-import com.codeup.blog.models.User;
 import com.codeup.blog.repositories.PostsRepository;
-import com.codeup.blog.repositories.UsersRepository;
 import com.codeup.blog.services.PostSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,13 +16,11 @@ public class PostsController {
 
     private final PostSvc postSvc; //create property
     private final PostsRepository postDao;
-    private final UsersRepository usersDao;
 
     @Autowired //Constructor injection, passed to controller; Spring knows to use this one and ignore others
-    public PostsController(PostSvc postSvc, PostsRepository postDao, UsersRepository usersDao){ //constructor same name as the class; pass property
+    public PostsController(PostSvc postSvc, PostsRepository postDao){ //constructor same name as the class; pass property
         this.postSvc = postSvc;
         this.postDao = postDao;
-        this.usersDao = usersDao;
     }
 
     @GetMapping("/posts") //Step 2 what url want to respond to
@@ -57,8 +53,7 @@ public class PostsController {
 
     @PostMapping("/posts/create") //
     public String CreatePost(@ModelAttribute Post post) { //use model attribute; accepts object of type post
-        User user = usersDao.findOne(2L);
-        post.setUser(user);
+//        postSvc.save(post);
         postDao.save(post);
         return "redirect:/posts";
     }
